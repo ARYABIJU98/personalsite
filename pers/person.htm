@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form">
+        <form id="submit-form" class=" mt-4"  action="#">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div id="one">
+                    <input type="text" class="form-control" id ="name" placeholder="Your Name" />
+                </div></div>
+                <div class="form-group col-md-6">
+                    <div id="two">
+                    <input type="email" class="form-control" id="email" placeholder="Your Email" />
+                </div></div>
+            </div>
+            <div class="form-group">
+                <div id="three">
+                <input type="text" class="form-control" id="subject" placeholder="Subject" />
+            </div>
+     <div class="form-group">
+                <textarea class="form-control" rows="5" id="message" placeholder="Message"></textarea>
+            </div>
+            <div><button class="btn" type="submit" >Send Message</button></div>
+        </form>
+        </div>
+
+        <script>
+            $("#submit-form").submit((e)=>{
+                    e.preventDefault()
+                    $.ajax({
+                        url:"https://script.google.com/macros/s/AKfycbykDediDEty1IXgnb5c3JXwElCKPKAImOA_64qxj7uWL_x6sPwF8gYkO3KJs0hWr_xtSA/exec",
+                        data:$("#submit-form").serialize(),
+                        method:"post",
+                        success:function (response){
+                            alert("Form submitted successfully")
+                            window.location.reload()
+                            //window.location.href="https://google.com"
+                        },
+                        error:function (err){
+                            alert("Something Error")
+            
+                        }
+                    })
+                })
+          
+    </script>
+
+</body>
+</html>
